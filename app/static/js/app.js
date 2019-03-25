@@ -48,10 +48,12 @@ const NewsList=Vue.component('news-list',{
      <li v-for="article in articles" class="news__list"> 
      
      {{ article.title }} 
-     <img v-bind:src="'{{ article.urlToImage }}'" />
-     {{ article.description }}
+     <img v-bind:src="article.urlToImage" />
+     {{ article.description }} 
+     
      </li>
      </ul> 
+     
      <div class="form-inline d-flex justify-content-center">
      <div class="form-group mx-sm-3 mb-2> 
       <label class="sr-only" for="search">Search</label>  
@@ -63,7 +65,7 @@ const NewsList=Vue.component('news-list',{
     `,
     created: function() { 
         let self = this;
-        fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=c7dd40af6687478abea28879abf8f393').then(function(response){
+        fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=').then(function(response){
             return response.json();
         }) 
         .then(function(data){
